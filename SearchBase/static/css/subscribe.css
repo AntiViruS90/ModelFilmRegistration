@@ -15,12 +15,12 @@
     text-align: center;
     border: 2px solid;
     width: 20%;
-    padding: 10px;
+    height: auto;
+    padding: 10px 10px 2% 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     background: linear-gradient(75deg, bisque, darksalmon);
     box-shadow: 3px 3px 5px black;
-
 }
 .divP p{
     text-align: center;
@@ -38,7 +38,10 @@ h4, h6 {
     margin-top: 7px;
 }
 h4 {
-    font-size: 1.5em;
+    font-size: 20px;
+}
+h6 {
+    font-size: 1em;
 }
 button {
     width: 60%;
@@ -54,4 +57,81 @@ button {
 button:hover {
     background: #8d3dbb;
     color: #fff;
+}
+@media screen and (max-width: 1240px){
+    .card {
+        width: 300px;
+    }
+    .card h4 {
+        font-size: x-large;
+    }
+    .divP p{
+        font-size: 1.25em;
+    }
+    a {
+        font-size: 1.25em;
+    }
+    button {
+        padding: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 960px) {
+    .card {
+        width: 360px;
+    }
+    .card h4 {
+        font-size: large;
+    }
+    .card h6 {
+        font-size: .8em;
+    }
+    .divP p {
+        font-size: 1.25em;
+    }
+    button {
+        padding: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .card {
+        width: 400px;
+    }
+    .card h4 {
+        font-size: xx-small;
+    }
+    .card h6 {
+        font-size: .7em;
+    }
+    .divP p{
+        font-size: 1.25em;
+    }
+    button {
+        padding: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 360px){
+    .card {
+        width: 280px;
+    }
+    .card h4 {
+        font-size: xx-small;
+    }
+    .card h6 {
+        font-size: .7em;
+    }
+    .divP p{
+        font-size: 1.25em;
+    }
+    button {
+        padding: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
 }
