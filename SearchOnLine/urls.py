@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('film/', views.FilmsList.as_view(), name='allfilms'),
+    path('search/', views.SearchResultsView.as_view(), name='search_results'),
     # path('info/<int:id>/<str:title>', views.info, name='info')
     path('info/<slug:pk>/<str:title>', views.FilmDetailList.as_view(), name='info'),
     path('actor/', views.ActorList.as_view(), name='allactor'),
@@ -37,4 +38,6 @@ urlpatterns = [
 ]
 """
 pk - Primary key identifying или айди(ID)
-slug = Набор символов"""
+slug = Набор символов
+from .views import HomePageView, SearchResultsView
+"""

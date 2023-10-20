@@ -22,3 +22,10 @@ class SignUpForm(UserCreationForm):
     # class Meta:  # при помощи Meta мы получаем поля из БД Models
     #     model = User
     #     fields = ('username', 'password1', 'password2', 'first_name', 'last_name', 'email')
+
+
+# class SearchForm(f.Form):
+#     search_form = f.CharField(max_length=40)
+#
+#     def __str__(self):
+#         return self.search_form

@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User, Group  # Создание юзера через программу
-from .form import SignUpForm
+from .form import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.views import generic  # generic генерирует что-то
+from django.db.models import Q
+
 
 # Create your views here.
 
@@ -41,12 +44,21 @@ def index(request):
 
 # def allfilms(request):
 #     return render(request, 'index.html') можно сделать так
-from django.views import generic  # generic генерирует что-то
 
 
 class FilmsList(generic.ListView):
     model = Film
     paginate_by = 2
+
+
+class SearchResultsView(generic.ListView):
+    model = Film
+    template_name = 'SearchBase/search_results.html'
+
+    def get_queryset(self):  # новый
+        query = self.request.GET.get('search')
+        object_list = Film.objects.filter(Q(title__icontains=query))
+        return object_list
 
 
 # from django.http import HttpResponse
@@ -153,9 +165,9 @@ def registration(request):
     # form = UserCreationForm()
     # встроенная функция Django from django.contrib.auth.forms import UserCreationForm
     if request.POST:
-        form = SignUpForm(request.POST)     # а это наша созданная форма
-        if form.is_valid():     # это проверка через python
-            form.save()     # без .save() появляется ошибка в виде "__meta"
+        form = SignUpForm(request.POST)  # а это наша созданная форма
+        if form.is_valid():  # это проверка через python
+            form.save()  # без .save() появляется ошибка в виде "__meta"
             username_from_form = form.cleaned_data.get('username')
             user_password = form.cleaned_data.get('password1')
             first_name_from_form = form.cleaned_data.get('first_name')
@@ -177,7 +189,7 @@ def registration(request):
             man.first_name = first_name_from_form
             man.last_name = last_name_from_form
             man.save()"""
-            login(request, user)    # с этим пользователем заходим на сайт
+            login(request, user)  # с этим пользователем заходим на сайт
             user_group = Group.objects.get(id=1)
             user_group.user_set.add(man)
             """У таблицы Group и User есть связь, через add мы добавляем нового 

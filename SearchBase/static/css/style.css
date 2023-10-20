@@ -4,10 +4,19 @@
 .menu {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background-color: lightgray;
+    line-height: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.menu .block_menu {
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     background-color: lightgray;
     line-height: 2rem;
-    width: 60%;
+    width: 80%;
     box-sizing: border-box;
 }
 a {
