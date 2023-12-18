@@ -79,7 +79,7 @@ button:hover {
 }
 @media screen and (max-width: 960px) {
     .card {
-        width: 360px;
+        width: 420px;
     }
     .card h4 {
         font-size: large;
@@ -99,7 +99,7 @@ button:hover {
 
 @media screen and (max-width: 520px){
     .card {
-        width: 400px;
+        width: 360px;
     }
     .card h4 {
         font-size: xx-small;
